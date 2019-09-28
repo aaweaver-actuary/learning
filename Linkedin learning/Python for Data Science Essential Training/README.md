@@ -1,6 +1,6 @@
 # Python for Data Science Essential Training
 
-## Sylabus
+## Overview Notes
 
 ### 1. Data Munging Basics
 #### 1.1 Filter and select data 
@@ -43,15 +43,71 @@
   * *cols:* `df.drop([], axis=1)`  
 * join columns  
   * `df1.join(df2)`  
-* append data tables  
-  * `df1.append(df2, ignore_index=False)`  
-    * use `ignore_index=False` if don't want the index to update  
+##### append data tables  
+```
+df1.append(df2, ignore_index=False)
+```  
+* use `ignore_index=False` if don't want the index to update  
+##### sort the data  
+```
+df.sort_values(by=[cols], ascending=[bool])
+``` 
 #### 1.5 Group and aggregate data  
+* `df.groupby([cols]).agg(ftn)`  
 
 
 ### 2. Data Visualization Basics
 #### 2.1 Create standard line, bar, and pie plots  
+* need to run the line `%matplotlib inline` if want jupyter to print the plots inline  
+* use `matplotlib.rcParams` (dictonary) to update asthetic things  
+
+##### line chart:
+ * create a line chart from a list obj - `plt.plot(x,y)`  
+ * create a line chart from pandas - `df.col_name.plot()`  
+ * line chart from dataframe comparing different columns - `df[[col1, col2, col3]].plot()`  
+  
+##### bar chart: 
+ * create bar chart from a list - `plt.bar(x,y)`  
+ * create bar chart from pandas - `df.col_name.plot(kind='bar')`
+ * create horizontal bar chart - `df.col_name.plot(kind='barh')`  
+  
+##### pie chart:
+ ```
+ plt.pie(x)  
+ plt.show()
+ ```  
+##### save a plot:
+ ```
+ plt.savefig('pie_chart.jpg')
+ plt.show()
+ ```
+ 
 #### 2.2 Define plot elements
+
+##### Two methods for plot building:
+1. *functional method* - call plotting functions on set of variables  
+2. *object-oriented method*  
+ i. create blank figure object  
+ ii. add axes to the figure  
+ iii. generate plot(s) within the figure object  
+ iv. specify plotting and layout parameters for the plots  
+
+*subplot* - a plotting figure that contains more than one plot (or subplots)  
+
+##### basic syntax:  
+ ```
+ fig = plt.figure()  
+ ax = fig.add_axes([.1, .1, 1, 1])  
+ ax.plot(x,y)
+ ```  
+ * need to define `plt.figure()` and `fig.add_axes([])` each time  
+##### set axis limits and tick marks  
+ ```
+ ax.set_xlim([start, end])
+ ax.set_ylim([start, end])
+ ax.set_xticks([...])
+ ax.set_yticks([...])
+ ```
 #### 2.3 Format plots
 #### 2.4 Create labels and annotations
 #### 2.5 Create visualizations from time series data
