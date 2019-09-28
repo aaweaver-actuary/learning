@@ -4,10 +4,50 @@
 
 ### 1. Data Munging Basics
 #### 1.1 Filter and select data 
-#### 1.2 Treat missing values  
+* data indexing
+  * label index `df.loc[]`  
+  * integer index `df.iloc[]`  
+* data slicing  
+* comparing with scalars  
+* filtering with scalars  
+* setting values with scalars  
+#### 1.2 Treat missing values 
+* discover what is missing  
+  * `np.nan` is a missing value  
+  * find missing values with `Series.isnull()`  
+* fill in missing values  
+  * in dataframe, use `df.fillna()`  
+    * fill with 0's `df.fillna(0)`  
+    * fill with a dictionary `df.fillna({})`  
+    * fill forward down the col `df.fillna(method='ffill')`  
+* count missing values  
+  * in dataframe, `df.isnull().sum()`  
+* filter out missing values  
+  * `df.dropna()`  
 #### 1.3 Remove duplicates
+* test for duplicates 
+  * in dataframe, `df.duplicated()`  
+* drop duplicate rows  
+  * `df.drop_duplicates()`  
+* drop duplicate columns  
+  * `df.drop_duplicates([col name])`
 #### 1.4 Concatenate and transform data
-#### 1.5 Group and aggregate data
+**concatenate** - combine data from different sources  
+**transform** - change the data to suit your needs  
+* concatenate data on rows  
+  * `pd.concat([df1, df2], axis=1)`  
+* concatenate data on columns  
+  * `pd.concat([df1, df2])
+* drop data  
+  * *rows:* `df.drop([])`  
+  * *cols:* `df.drop([], axis=1)`  
+* join columns  
+  * `df1.join(df2)`  
+* append data tables  
+  * `df1.append(df2, ignore_index=False)`  
+    * use `ignore_index=False` if don't want the index to update  
+#### 1.5 Group and aggregate data  
+
 
 ### 2. Data Visualization Basics
 #### 2.1 Create standard line, bar, and pie plots  
