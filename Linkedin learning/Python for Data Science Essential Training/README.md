@@ -1,5 +1,18 @@
 # Python for Data Science Essential Training
 
+## TOC:
+### 1. Data Munging Basics
+### 2. Data Visualization Basics
+### 3. Basic Math and Statistics
+### 4. Dimensionality Reduction
+### 5. Outlier Analysis
+### 6. Cluster Analysis
+### 7. Network Analysis with NetworkX
+### 8. Basic Algorithmic Learning
+### 9. Web-Based Data Visualizations with Plotly
+### 10. Web Scraping with Beautiful Soup
+### Conclusion:  Next Steps 
+
 ## Overview Notes
 
 ### 1. Data Munging Basics
