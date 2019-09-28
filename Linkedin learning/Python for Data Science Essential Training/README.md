@@ -20,29 +20,50 @@
     * fill with 0's `df.fillna(0)`  
     * fill with a dictionary `df.fillna({})`  
     * fill forward down the col `df.fillna(method='ffill')`  
-* count missing values  
-  * in dataframe, `df.isnull().sum()`  
-* filter out missing values  
-  * `df.dropna()`  
+##### count missing values in dataframe
+```
+df.isnull().sum()
+```
+##### filter out missing values  
+```
+df.dropna()
+```  
 #### 1.3 Remove duplicates
-* test for duplicates 
-  * in dataframe, `df.duplicated()`  
-* drop duplicate rows  
-  * `df.drop_duplicates()`  
-* drop duplicate columns  
-  * `df.drop_duplicates([col name])`
+##### test for duplicates in dataframe
+```
+df.duplicated()
+```  
+##### drop duplicate rows  
+```
+df.drop_duplicates()
+```  
+##### drop duplicate columns  
+```
+df.drop_duplicates([col name])
+```
 #### 1.4 Concatenate and transform data
 **concatenate** - combine data from different sources  
 **transform** - change the data to suit your needs  
-* concatenate data on rows  
-  * `pd.concat([df1, df2], axis=1)`  
-* concatenate data on columns  
-  * `pd.concat([df1, df2])
-* drop data  
-  * *rows:* `df.drop([])`  
-  * *cols:* `df.drop([], axis=1)`  
-* join columns  
-  * `df1.join(df2)`  
+##### concatenate data on rows  
+```
+pd.concat([df1, df2], axis=1)
+```  
+##### concatenate data on columns  
+```
+pd.concat([df1, df2])
+```
+##### drop data from rows
+```
+df.drop([])
+```
+##### drop data from columns
+```
+df.drop([], axis=1)
+```  
+##### join columns  
+```
+df1.join(df2)
+```  
 ##### append data tables  
 ```
 df1.append(df2, ignore_index=False)
@@ -53,7 +74,9 @@ df1.append(df2, ignore_index=False)
 df.sort_values(by=[cols], ascending=[bool])
 ``` 
 #### 1.5 Group and aggregate data  
-* `df.groupby([cols]).agg(ftn)`  
+```
+df.groupby([cols]).agg(ftn)
+```  
 
 
 ### 2. Data Visualization Basics
@@ -62,14 +85,32 @@ df.sort_values(by=[cols], ascending=[bool])
 * use `matplotlib.rcParams` (dictonary) to update asthetic things  
 
 ##### line chart:
- * create a line chart from a list obj - `plt.plot(x,y)`  
- * create a line chart from pandas - `df.col_name.plot()`  
- * line chart from dataframe comparing different columns - `df[[col1, col2, col3]].plot()`  
+###### create a line chart from a list
+```
+plt.plot(x,y)
+````  
+###### create a line chart from pandas
+```
+df.col_name.plot()
+```  
+###### line chart from dataframe comparing different columns
+```
+df[[col1, col2, col3]].plot()
+```  
   
 ##### bar chart: 
- * create bar chart from a list - `plt.bar(x,y)`  
- * create bar chart from pandas - `df.col_name.plot(kind='bar')`
- * create horizontal bar chart - `df.col_name.plot(kind='barh')`  
+###### create bar chart from a list
+```
+plt.bar(x,y)
+```  
+###### create bar chart from pandas
+```
+df.col_name.plot(kind='bar')
+```
+###### create horizontal bar chart
+```
+df.col_name.plot(kind='barh')
+```  
   
 ##### pie chart:
  ```
@@ -108,7 +149,51 @@ df.sort_values(by=[cols], ascending=[bool])
  ax.set_xticks([...])
  ax.set_yticks([...])
  ```
+ 
+##### add in grid  
+```
+fig = plt.figure()
+ax = fig.add_axes([])
+ax.set_xlim([])
+ax.set_ylim([])
+
+#add a grid
+ax.grid()
+
+ax.plot(x,y)
+```
+
+##### for subplots, each subplot gets own axis
+```
+fig, (ax1, ax2) = plt.subplots(1, 2)
+ax1.plot(x)
+ax2.plot(x,y)
+```
 #### 2.3 Format plots
+##### adjust width, color, alignment of bar plot
+```
+plt.bar(x, y, width=[], color=[], align='center')
+```
+##### adjust color of `df.plot()`
+```
+df.plot(color=[])
+```
+
+##### pie plot colors 
+```
+plt.pie(z, colors=[])
+plt.show()
+```
+
+##### set line style/width
+```
+plt.plot(x,y,ls='style', lw=width)
+```
+
+##### set marker style/width
+```
+plt.plot(x,y,marker='style', mew=width)
+```
 #### 2.4 Create labels and annotations
 #### 2.5 Create visualizations from time series data
 #### 2.6 Construct histograms, box plots, and scatter plots
